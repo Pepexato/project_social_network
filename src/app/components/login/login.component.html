@@ -1,0 +1,41 @@
+<div class="signup-form">
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Identificado Correctamente Identificado correctamente, ya puedes empezar a utilizar <a [routerLink]="['/home']"
+            routerLinkActive="router-link-active">Petstagram </a>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status== 'error'">
+        No has podido inicar sesion revisa tu correo electronico o tu contraseña,
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+        <img class="rounded mx-auto d-block" src="assets/logos/logo_pet_2.png">
+        <div class="">
+            <p class="centrado">Inicia sesion para entrar a Petstagram</p>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user mr-1 mt-2"></i></span>
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Correo Electrónico" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock mr-1 mt-2"></i></span>
+
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password"
+                    class="form-control" required pattern=".{8,}" placeholder="Contraseña (mínimo 8 caracteres)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Iniciar Sesión" class="btn btn-primary btn-block btn-lg"
+                [disabled]="!loginForm.form.valid" />
+        </div>
+
+    </form>
+</div>

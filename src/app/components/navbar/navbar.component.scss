@@ -1,0 +1,44 @@
+.profile {
+    color: white;
+}
+.profile-link {
+    color: #fa6640;
+    text-decoration: none;
+}
+.dropdown-menu {
+    margin-top: 16px;
+}
+.nav-item {
+    color: black;
+}
+
+.img-size {
+    width: 130px;
+    height: 45px;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-right: 2px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.avatar img {
+    height: auto;
+    width: 38px;
+}
+@media (max-width: 992px) {
+    .profile-link {
+        color: white;
+    }
+
+    .profile-ul {
+        background-color: #fa6640;
+    }
+    .dropdown-menu {
+        border: 0px;
+        margin-top: 0px;
+    }
+}

@@ -1,0 +1,73 @@
+.img-size {
+    width: 180px;
+    height: 180px;
+    border-radius: 180px;
+    object-fit: cover;
+}
+
+.profile-text {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #FA6640;
+}
+
+.container {
+    width: 60%;
+   
+}
+
+.card{
+    border:0px solid black;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+    .img-size {
+        width: 150px;
+        height: 150px;
+        border-radius: 170px;
+        object-fit: cover;
+    }
+
+    .profile-text {
+        font-size: larger;
+        font-weight: bold;
+        color: #FA6640;
+    }
+
+    .header-comp {
+        font-size: xx-large;
+    }
+
+    .p-5 {
+        padding: 2.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 90%;
+    }
+    .img-size {
+        width: 130px;
+        height: 130px;
+        border-radius: 130px;
+        object-fit: cover;
+    }
+
+    .profile-text {
+        font-size: larger;
+        font-weight: bold;
+        color: #cf2222;
+    }
+
+    .header-comp {
+        font-size: xx-large;
+    }
+
+    .p-5 {
+        padding: 2rem !important;
+    }
+}

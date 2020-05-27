@@ -1,0 +1,51 @@
+<div class="container mt-5 shadow-box">
+    <div class="row">
+        <div class="col col-img">
+            <img class="w-100 h-100 fit-foto" src="assets/img/new_publication_image.jpg">
+
+        </div>
+        <div class="col ">
+            <div class="signup-form">
+
+                <div class="alert alert-success" *ngIf="status == 'success'">
+                   Publicacion creada correctamente.
+                </div>
+            
+                <div class="alert alert-danger" *ngIf="status== 'error'">
+                    Error al crear la publicacion.
+                </div>
+                <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm)">
+            
+                    <div class="mb-2">
+                        <h1 class="centrado header-comp mb-5">Nueva Publicación</h1>
+            
+                    </div>
+            
+                    <div class="form-group mt-2">
+                        <span class="input-group-addon negrita">Descripción: </span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <div class="input-group">
+                            <textarea cols="50" rows="3" style="border:1px black solid;" type="textarea" name="text" #text="ngModel" [(ngModel)]="publication.text" 
+                            class="form-control" required></textarea>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="input-group-addon"><strong>Imagen</strong> (Obligada) </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="file" placeholder="Subir Imagen" (change)="fileChangeEvent($event)" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Subir Publicación" class="btn btn-primary btn-block btn-lg"
+                            [disabled]="!newPubForm.form.valid" />
+                    </div>
+            
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

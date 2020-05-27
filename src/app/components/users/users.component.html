@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <div class="centrado mt-3 mb-1">
+        <h1 class="header-comp">Gente </h1>
+        <hr class="hr-basic">
+    </div>
+    <div class="row">
+        <div *ngFor="let user of users" class="col-lg-4 col-sm-6">
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img src="{{url+'get-image-user/'+user.image}}" *ngIf="user.image" class="fit" />
+                    <img src="assets/logos/avatar.png" *ngIf="!user.image" class="fit" />
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a [routerLink]="['/profile',user._id]" routerLinkActive="router-link-active">{{user.nick}}</a>
+                    </div>
+                    <div class="desc"><i class="fa fa-user mr-1 mt-2"></i>{{user.name + ' '+user.surname}}</div>
+                </div>
+                <div class="bottom">
+                    <button class="btn btn-primary btn-block" *ngIf="follows.indexOf(user._id) < 0" rel="publisher"
+                        href="#" (click)="followUser(user._id)">
+                        Seguir
+                    </button>
+
+                    <button class="btn btn-success btn-block " rel="publisher" *ngIf="follows.indexOf(user._id) >= 0"
+                        (click)="unfollowUser(user._id)" (mouseenter)="mouseEnter(user._id)"
+                        (mouseleave)="mouseLeave(user._id)" [class.btn-danger]="user._id == followUserOver" href="#">
+
+                        <span *ngIf="user._id == followUserOver; else following">Dejar de Seguir</span>
+                        <ng-template #following>
+                            <span>Siguiendo</span>
+                        </ng-template>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="pos-btn mb-5">
+        <button *ngIf="page > 1" class="btn btn-secondary btn-sm mr-2"><a 
+                [routerLink]="['/gente', pre_page]">Anterior</a></button>
+        <button *ngIf="pages != page" class="btn btn-secondary btn-sm "> <a 
+                [routerLink]="['/gente',next_page]">Siguiente</a></button>
+    </div>
+
+</div>

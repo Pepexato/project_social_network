@@ -1,0 +1,55 @@
+<div class="signup-form">
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Registro completado correctamente, <a [routerLink]="['/login']"
+            routerLinkActive="router-link-active">Identificate aquí</a>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status== 'error'">
+        No te has podido registrar, <a [routerLink]="['/login']" routerLinkActive="router-link-active">Identificate
+            aquí</a>
+    </div>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <img class="rounded mx-auto d-block" src="assets/logos/logo_pet_2.png">
+        <p class="lead">Regístrate para ver publicaciones de tus amigos</p>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" name="name"  maxlength="10" #name="ngModel" [(ngModel)]="user.name" class="form-control" required
+                    placeholder="Nombre de usuario" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" name="surname"  maxlength="20" #surname="ngModel" [(ngModel)]="user.surname" class="form-control"
+                    required placeholder="Apellidos" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" name="nick" #nick="ngModel"  maxlength="10" [(ngModel)]="user.nick" class="form-control" required
+                    placeholder="Nick del usuario" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Correo Electrónico" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password"
+                    class="form-control" required pattern=".{8,}" placeholder="Contraseña (mínimo 8 caracteres)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Registrate" class="btn btn-primary btn-block btn-lg"
+                [disabled]="!registerForm.form.valid" />
+        </div>
+        <p class="small text-center">Al registrarte, aceptas nuestras Condiciones. Obtén más información sobre cómo
+            recopilamos, usamos y compartimos tu información en la Política de datos, así como el uso que hacemos de las
+            cookies y tecnologías similares en nuestra Política de cookies.</p>
+    </form>
+    <div class="text-center">¿Ya tienes una cuenta creada?<a href="#">Iniciar Sesión</a>.</div>
+</div>
