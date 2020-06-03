@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("Inciar el componente main de mensajes");
   }
 
 }

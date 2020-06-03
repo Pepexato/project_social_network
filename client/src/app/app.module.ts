@@ -20,10 +20,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TimelineuserComponent } from './components/timelineuser/timelineuser.component';
 import { FollowingComponent } from './components/following/following.component';
 import { FollowedComponent } from './components/followed/followed.component';
-import { MainComponent } from './messages/components/main/main.component';
-import { AddComponent } from './messages/components/add/add.component';
-import { ReceivedComponent } from './messages/components/received/received.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/messages/components/main/main.component';
+import { AddComponent } from './components/messages/components/add/add.component';
+import { ReceivedComponent } from './components/messages/components/received/received.component';
+import { SendedComponent } from './components/messages/components/sended/sended.component';
+//Modelo Custom
 
 
 
@@ -43,10 +45,11 @@ import { FooterComponent } from './components/footer/footer.component';
     TimelineuserComponent,
     FollowingComponent,
     FollowedComponent,
+    FooterComponent,
     MainComponent,
     AddComponent,
-    ReceivedComponent,
-    FooterComponent,
+    ReceivedComponent, 
+    SendedComponent
 
   ],
   imports: [
@@ -54,7 +57,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MomentModule
+    MomentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

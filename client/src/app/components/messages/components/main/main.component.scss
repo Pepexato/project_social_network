@@ -1,0 +1,22 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.big {
+    width: 50%;
+}
+
+.little {
+    width: 50%;
+}
+
+@media (max-width: 576px) {
+    .big {
+        width: 100%;
+    }
+    .little {
+        width: 100%;
+    }
+}

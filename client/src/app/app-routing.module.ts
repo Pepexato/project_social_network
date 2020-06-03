@@ -14,6 +14,10 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FollowingComponent } from './components/following/following.component';
 import { FollowedComponent } from './components/followed/followed.component';
+import { MainComponent } from './components/messages/components/main/main.component';
+import { AddComponent } from './components/messages/components/add/add.component';
+import { ReceivedComponent } from './components/messages/components/received/received.component';
+import { SendedComponent } from './components/messages/components/sended/sended.component';
  
 
 
@@ -42,6 +46,14 @@ export const appRoutes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  }, {
+    path: 'mensajes',component:MainComponent, children: [
+        
+            {path:'',redirectTo:'recibidos',pathMatch:'full'},
+            {path:'enviar', component:AddComponent},
+            {path:'recibidos', component:ReceivedComponent},
+            {path:'enviados', component:SendedComponent}
+    ]
   }, {
     path: 'home',
     component: HomeComponent
