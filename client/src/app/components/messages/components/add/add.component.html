@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="alinear-caja">
+        <div class="alinear-caja w-75">
             
         <form class="" #newMessageForm="ngForm" (ngSubmit)="onSubmit(newMessageForm)">
             
@@ -24,7 +24,7 @@
                     
                     <select *ngIf="follows" name="receiver" #receiver="ngModel" [(ngModel)]="message.receiver" required>
                         <option *ngFor="let follow of follows" value="{{follow.user._id}}">
-                            {{follow.user.name + ' ' + follow.user.surname + '('+follow.user.nick+')'+' ' +follow.user._id}}
+                            {{follow.user.name + ' ' + follow.user.surname + '('+follow.user.nick+')'}}
 
                         </option>    
                     </select>

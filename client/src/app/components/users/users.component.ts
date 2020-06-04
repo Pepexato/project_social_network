@@ -46,10 +46,9 @@ export class UsersComponent implements OnInit {
 
   actualPage() {
     this._route.params.subscribe(params => {
+    
       let page = +params['page'];
       this.page = page;
-      console.log(typeof (page));
-
 
       if (!params['page']) {
         page = 1;
@@ -81,13 +80,12 @@ export class UsersComponent implements OnInit {
 
         }
         else {
-          console.log(response);
-
+          
           this.total = response.total;
           this.users = response.users;
           this.pages = response.pages;
           this.follows = response.users_following;
-
+          console.log(this.users);
           console.log(this.follows);
           if (page > this.pages) {
             this._router.navigate(['/gente/1']);

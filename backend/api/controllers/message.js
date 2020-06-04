@@ -64,7 +64,7 @@ function getReceivedMessages(req,res)
 
     var itemsPerPage = 4;
 
-    Message.find({receiver:userId}).populate('emmiter','name surname image nick _id').paginate(page,itemsPerPage, (err,messages,total) =>{
+    Message.find({receiver:userId}).populate('emmiter','name surname image nick _id').sort('-created_at').paginate(page,itemsPerPage, (err,messages,total) =>{
 
         if(err)
         {
@@ -93,15 +93,16 @@ function getEmmitMessages(req,res)
     var userId = req.user.sub;
 
     var page = 1;
+   
 
     if(req.params.page)
     {
         page =  req.params.page;
     }
 
-    var itemsPerPage = 4;
+    var itemsPerPage = 3;
 
-    Message.find({emmiter:userId}).populate('emmiter receiver','name surname image nick _id').paginate(page,itemsPerPage, (err,messages,total) =>{
+    Message.find({emmiter:userId}).populate('emmiter receiver','name surname image nick _id').sort('-created_at').paginate(page,itemsPerPage, (err,messages,total) =>{
 
         if(err)
         {
@@ -116,9 +117,10 @@ function getEmmitMessages(req,res)
         }
 
         return res.status(200).send({
-            total:total,
-            pages:Math.ceil(total/itemsPerPage),
-            messages
+            messages,
+            total,
+            pages:Math.ceil(total/itemsPerPage)
+           
         });
 
     });

@@ -2,16 +2,18 @@
 
     <div class="p-3 little">
         <h2 class="mb-5 header-comp">Mensajeria Privada</h2>
-         <button class="btn btn-primary btn-block">Enviar Mensaje</button>
-         <button class="btn btn-primary btn-block">Mensajes Enviados</button>
-         <button class="btn btn-primary btn-block">Mensajes recibidos</button>
-         <a class="nav-link" routerLink="/mensajes/enviar" routerLinkActive="active"><i
-            class="far fa-list-alt mr-1"></i>Enviar
-    </a>
+
+        <a class="nav-link" routerLink="/mensajes/enviados/1" routerLinkActive="active"><i
+                class="far fa-list-alt mr-1"></i>Enviados
+        </a> <a class="nav-link" routerLink="/mensajes/recibidos/1" routerLinkActive="active"><i
+                class="far fa-list-alt mr-1"></i>Recibidos
+        </a> <a class="nav-link" routerLink="/mensajes/enviar" routerLinkActive="active"><i
+                class="far fa-list-alt mr-1"></i>Enviar
+        </a>
 
     </div>
-        <div class="p-3 big flex-wrap">
-            <router-outlet></router-outlet>
-        </div>
-   
+    <div class="p-3 big flex-wrap">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
