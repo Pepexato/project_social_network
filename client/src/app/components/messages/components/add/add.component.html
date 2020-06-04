@@ -1,1 +1,54 @@
-<h2>Enviar Mensaje</h2>
+<div class="container">
+    <div class="row">
+        <div class="alinear-caja">
+            
+        <form class="" #newMessageForm="ngForm" (ngSubmit)="onSubmit(newMessageForm)">
+            
+            <div class="">
+                <h2 class="centrado header-comp mb-5">Enviar Mensaje </h2>
+    
+            </div>
+            <div class="alert alert-success" *ngIf="status == 'success'">
+                Mensaje enviado correctamente
+            </div>
+        
+            <div class="alert alert-danger" *ngIf="status== 'error'">
+               No se ha podido enviar el mensaje
+            </div>
+    
+            <div class="form-group mt-2">
+                <div class="form-group mt-2">
+                    <span class="input-group-addon negrita">Para: </span>
+                </div>
+                <div class="input-group">
+                    
+                    <select *ngIf="follows" name="receiver" #receiver="ngModel" [(ngModel)]="message.receiver" required>
+                        <option *ngFor="let follow of follows" value="{{follow.user._id}}">
+                            {{follow.user.name + ' ' + follow.user.surname + '('+follow.user.nick+')'+' ' +follow.user._id}}
+
+                        </option>    
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <div class="form-group mt-2">
+                    <span class="input-group-addon negrita">Texto: </span>
+                </div>
+                <div class="input-group">
+                    <textarea cols="50" rows="3" style="border:1px black solid;" type="textarea" name="text" #text="ngModel" [(ngModel)]="message.text" 
+                    class="form-control" required></textarea>
+
+                </div>
+            </div>
+            
+          
+            <div class="form-group">
+                <input type="submit" value="Enviar Mensaje" class="btn btn-primary btn-block btn-lg"
+                    [disabled]="!newMessageForm.form.valid" />
+            </div>
+    
+        </form>
+    </div>
+    </div>
+</div>

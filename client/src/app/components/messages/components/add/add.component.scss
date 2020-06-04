@@ -1,0 +1,132 @@
+.alinear-caja{
+    margin: 0 auto;
+}
+.fit-foto{
+    object-fit: cover;
+}
+.negrita{
+    font-weight: bold;
+}
+.col {
+    padding: 0;
+}
+
+
+.form-control,
+.form-control:focus,
+.input-group-addon {
+    border-color: #e1e1e1;
+    border-radius: 0;
+}
+.signup-form {
+    width: 390px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+.signup-form h2 {
+    color: white;
+    margin: 0 0 15px;
+    text-align: center;
+}
+.signup-form .lead {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+}
+.signup-form form {
+    border-radius: 0px;
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 15px;
+}
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+.signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+    border-width: 0 0 0 0;
+}
+.signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+    background: none;
+    padding-left: 5px;
+}
+.signup-form .btn {
+    font-size: 16px;
+    font-weight: bold;
+    background: #19aa8d;
+    border: none;
+    min-width: 140px;
+    outline: none !important;
+}
+.signup-form .btn:hover,
+.signup-form .btn:focus {
+    background: #179b81;
+}
+.signup-form a {
+    color: #19aa8d;
+    text-decoration: none;
+}
+.signup-form a:hover {
+    text-decoration: underline;
+}
+.signup-form .fa {
+    font-size: 21px;
+}
+.signup-form .fa-paper-plane {
+    font-size: 17px;
+}
+.signup-form .fa-check {
+    color: #fff;
+    left: 9px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+}
+.size-edit {
+    width: 380px;
+    margin: 0 auto;
+    height: 150px;
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+@media (max-width: 768px) { 
+    .signup-form{
+        width: 80%;
+        margin: 0 auto;
+    }  
+    .col{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .col-img {
+        display: none;
+    }
+ }
+
+@media (max-width: 576px) { 
+
+    
+    .signup-form{
+        width: 80%;
+        margin: 0 auto;
+    }  
+    .col{
+        width: 80%;
+        margin: 0 auto;
+    }
+ 
+ }
+
