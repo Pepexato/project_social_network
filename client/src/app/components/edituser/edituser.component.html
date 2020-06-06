@@ -9,7 +9,7 @@
         No se ha podido actualizar.
     </div>
     <form #EdituserForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-        <h2>Actualizar mis datos</h2>
+        <h2 class="header-comp mb-4">Actualizar mis datos</h2>
         <div class="form-group">
             <div class="input-group">
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required
