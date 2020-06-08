@@ -19,7 +19,6 @@ function saveMessage(req,res)
     if(!params.text || !params.receiver)
     {   
         return res.status(200).send({message:'Envia los datos necesarios'});
-
     }
 
     var message = new Message();
@@ -35,26 +34,20 @@ function saveMessage(req,res)
         if(err)
         {
             return res.status(500).send({message:'Error en la peticion'});
-
         }
-
 
         if(!messageStored)
         {
             return res.status(500).send({message:'Error al enviar el mensaje'});
-
         }
         return res.status(200).send({messageStored});
 
     });
-
 }
-
 
 function getReceivedMessages(req,res)
 {
     var userId = req.user.sub;
-
     var page = 1;
 
     if(req.params.page)
@@ -63,19 +56,16 @@ function getReceivedMessages(req,res)
     }
 
     var itemsPerPage = 4;
-
     Message.find({receiver:userId}).populate('emmiter','name surname image nick _id').sort('-created_at').paginate(page,itemsPerPage, (err,messages,total) =>{
 
         if(err)
         {
             return res.status(500).send({message:'Error en la peticion'});
-
         }
         
         if(!messages)
         {
             return res.status(404).send({message:'No hay mensajes'});
-
         }
 
         return res.status(200).send({
@@ -83,37 +73,30 @@ function getReceivedMessages(req,res)
             pages:Math.ceil(total/itemsPerPage),
             messages
         });
-
     });
 }
-
 
 function getEmmitMessages(req,res)
 {
     var userId = req.user.sub;
-
     var page = 1;
    
-
     if(req.params.page)
     {
         page =  req.params.page;
     }
 
     var itemsPerPage = 3;
-
     Message.find({emmiter:userId}).populate('emmiter receiver','name surname image nick _id').sort('-created_at').paginate(page,itemsPerPage, (err,messages,total) =>{
 
         if(err)
         {
             return res.status(500).send({message:'Error en la peticion'});
-
         }
         
         if(!messages)
         {
             return res.status(404).send({message:'No hay mensajes'});
-
         }
 
         return res.status(200).send({
@@ -122,7 +105,6 @@ function getEmmitMessages(req,res)
             pages:Math.ceil(total/itemsPerPage)
            
         });
-
     });
 }
 

@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="centrado mt-3 mb-1">
-        <h1 class="header-comp">Seguidores de  {{user.name+ ' '+ user.surname}}  </h1>
+        <h1 class="header-comp">Seguidores de {{user.name+ ' '+ user.surname}} </h1>
         <hr class="hr-basic">
     </div>
     <div class="row" *ngIf="followed">
@@ -10,8 +10,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img src="{{url+'get-image-user/'+follow.user.image}}" *ngIf="follow.user.image"
-                        class="fit" />
+                    <img src="{{url+'get-image-user/'+follow.user.image}}" *ngIf="follow.user.image" class="fit" />
                     <img src="assets/logos/avatar.png" *ngIf="!follow.user.image" class="fit" />
                 </div>
                 <div class="info">
@@ -19,8 +18,7 @@
                         <a [routerLink]="['/profile',follow.user._id]"
                             routerLinkActive="router-link-active">{{follow.user.nick}}</a>
                     </div>
-                    <div class="desc"><i
-                            class="fa fa-user mr-1 mt-2"></i>{{follow.user.name + ' '+follow.user.surname}}
+                    <div class="desc"><i class="fa fa-user mr-1 mt-2"></i>{{follow.user.name + ' '+follow.user.surname}}
                     </div>
                 </div>
                 <div class="bottom">
@@ -45,13 +43,13 @@
             </div>
 
         </div>
-
+        <div class="pos-btn mb-5">
+            <button *ngIf="page > 1" class="btn btn-secondary btn-sm mr-2"><a
+                    [routerLink]="['/seguidores', userPageId,pre_page]">Anterior</a></button>
+            <button *ngIf="pages != page" class="btn btn-secondary btn-sm "> <a
+                    [routerLink]="['/seguidores',userPageId,next_page]">Siguiente</a></button>
+        </div>
     </div>
 
 </div>
-<div class="pos-btn mb-5">
-    <button *ngIf="page > 1" class="btn btn-secondary btn-sm mr-2"><a
-            [routerLink]="['/seguidores', userPageId,pre_page]">Anterior</a></button>
-    <button *ngIf="pages != page" class="btn btn-secondary btn-sm "> <a
-            [routerLink]="['/seguidores',userPageId,next_page]">Siguiente</a></button>
-</div>
+<div *ngIf="!followed"><h4 class="centrado">No te sigue nadie</h4></div>

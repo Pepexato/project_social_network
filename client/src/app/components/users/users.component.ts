@@ -81,12 +81,12 @@ export class UsersComponent implements OnInit {
         }
         else {
           
+
           this.total = response.total;
           this.users = response.users;
           this.pages = response.pages;
           this.follows = response.users_following;
-          console.log(this.users);
-          console.log(this.follows);
+          
           if (page > this.pages) {
             this._router.navigate(['/gente/1']);
           }

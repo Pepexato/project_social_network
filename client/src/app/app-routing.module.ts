@@ -49,7 +49,7 @@ export const appRoutes: Routes = [
   }, {
     path: 'mensajes',component:MainComponent, children: [
         
-            {path:'',redirectTo:'recibidos',pathMatch:'full'},
+            {path:'',redirectTo:'recibidos/1',pathMatch:'full'},
             {path:'enviar', component:AddComponent},
             {path:'recibidos', component:ReceivedComponent},
             {path:'recibidos/:page', component:ReceivedComponent},
