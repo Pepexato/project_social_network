@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
   public pre_page;
   public total;
   public pages;
-  public users: User;
+  public users: Array<User>;
   public status: string;
   public follows;
   constructor(
@@ -84,6 +84,22 @@ export class UsersComponent implements OnInit {
 
           this.total = response.total;
           this.users = response.users;
+          let counter = 0; 
+
+          for(let usuarios of this.users)
+          {
+            
+            console.log(this.users[counter]._id);
+            if(this.identity._id == this.users[counter]._id)
+            {
+              console.log("Son iguales");
+               this.users.splice(counter,1);
+            }
+            counter++;
+          }
+      
+          console.log("Vamos a ver si lo he borrao");
+          console.log(this.users);
           this.pages = response.pages;
           this.follows = response.users_following;
           
