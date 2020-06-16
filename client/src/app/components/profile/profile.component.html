@@ -28,9 +28,12 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 text-center" *ngIf="user.image">
+                        <div class="mb-4 col-md-4 col-sm-4 text-center" *ngIf="user.image">
                             <img *ngIf="user.image" src="{{url+'get-image-user/'+user.image}}" class="img-size" />
+                            
                         </div>
+                        <hr class="hr-basic">
+
                         <div class="col-md-4 col-sm-4 text-center " *ngIf="user.image == null">
                             <img src="assets/logos/avatar.png" class="img-size" />
                         </div>

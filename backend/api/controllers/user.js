@@ -238,7 +238,8 @@ function getUsers(req, res) {
     var itemPerPage = 6;
 
     User.find().sort('_id').paginate(page, itemPerPage, (err, users, total) => {
-
+        
+       
         if (err) {
             return res.status(500).send({ message: 'Error en la peticion' });
         }
@@ -247,6 +248,7 @@ function getUsers(req, res) {
             if (err) return res.status(404).send({ message: 'No hay usuarios en la plataforma disponibles' });
 
         }
+        console.log(total);
         followUserIds(identity_user_id).then((value) => {
 
             return res.status(200).send({

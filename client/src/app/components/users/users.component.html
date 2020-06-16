@@ -19,7 +19,7 @@
                     </div>
                     <div class="desc"><i class="fa fa-user mr-1 mt-2"></i>{{user.name + ' '+user.surname}}</div>
                 </div>
-                <div class="bottom">
+                <div class="bottom" *ngIf="user._id != identity._id">
                     <button class="btn btn-primary btn-block" *ngIf="follows.indexOf(user._id) < 0" rel="publisher"
                         href="#" (click)="followUser(user._id)">
                         Seguir
@@ -35,6 +35,11 @@
                         </ng-template>
                     </button>
 
+                </div>
+                <div class="bottom" *ngIf="user._id == identity._id">
+                    <button class="btn color-profile btn-block" >
+                        <a [routerLink]="['/profile',user._id]" routerLinkActive="router-link-active">Ver Mi perfil</a>
+                    </button>
                 </div>
             </div>
 

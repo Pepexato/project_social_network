@@ -18,6 +18,7 @@ import { MainComponent } from './components/messages/components/main/main.compon
 import { AddComponent } from './components/messages/components/add/add.component';
 import { ReceivedComponent } from './components/messages/components/received/received.component';
 import { SendedComponent } from './components/messages/components/sended/sended.component';
+import { UserGuard } from './services/user.guard';
  
 
 
@@ -31,23 +32,23 @@ export const appRoutes: Routes = [
   },
   {
     path: 'siguiendo/:id/:page',
-    component: FollowingComponent
+    component: FollowingComponent,canActivate:[UserGuard]
   }, {
     path: 'seguidores/:id/:page',
-    component: FollowedComponent
+    component: FollowedComponent,canActivate:[UserGuard]
   },{
     path: 'profile/:id',
-    component: ProfileComponent
+    component: ProfileComponent,canActivate:[UserGuard]
   },
   {
     path:'timeline',
-    component:TimelineComponent
+    component:TimelineComponent,canActivate:[UserGuard]
   },
   {
     path: 'register',
     component: RegisterComponent
   }, {
-    path: 'mensajes',component:MainComponent, children: [
+    path: 'mensajes',component:MainComponent,canActivate:[UserGuard], children: [
         
             {path:'',redirectTo:'recibidos/1',pathMatch:'full'},
             {path:'enviar', component:AddComponent},
@@ -61,16 +62,16 @@ export const appRoutes: Routes = [
     component: HomeComponent
   }, {
     path: 'edituser',
-    component: EdituserComponent
+    component: EdituserComponent,canActivate:[UserGuard]
   }, {
     path: 'gente/:page',
-    component: UsersComponent
+    component: UsersComponent,canActivate:[UserGuard]
   },{
     path: 'gente',
-    component: UsersComponent
+    component: UsersComponent,canActivate:[UserGuard]
   },{
     path: 'nueva-publicacion',
-    component: PublicationComponent
+    component: PublicationComponent,canActivate:[UserGuard]
   },{
     path: '**',
     component: PagenotfoundComponent

@@ -25,7 +25,11 @@ import { MainComponent } from './components/messages/components/main/main.compon
 import { AddComponent } from './components/messages/components/add/add.component';
 import { ReceivedComponent } from './components/messages/components/received/received.component';
 import { SendedComponent } from './components/messages/components/sended/sended.component';
+import { UserService } from './services/user.service';
+import { UserGuard } from './services/user.guard';
 //Modelo Custom
+
+//Servicios
 
 
 
@@ -59,7 +63,7 @@ import { SendedComponent } from './components/messages/components/sended/sended.
     FormsModule,
     MomentModule,
   ],
-  providers: [],
+  providers: [UserService,UserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
