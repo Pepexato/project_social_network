@@ -52,7 +52,7 @@ export class FollowedComponent implements OnInit {
 
       this.page = page;
 
-      console.log(typeof (page));
+      console.log("El usuario logeado es:"+this.identity._id);
 
 
       if (!params['page']) {
@@ -86,18 +86,12 @@ export class FollowedComponent implements OnInit {
 
         }
         else {
-          console.log(response);
 
           this.total = response.total;
           this.followed = response.follows;
           this.pages = response.pages;
           this.follows = response.users_following;
-          /*
-          console.log(this.follows);
-          if (page > this.pages) {
-            this._router.navigate(['/gente/1']);
-          }
-          */
+          console.log(this.followed);
         }
         
       },

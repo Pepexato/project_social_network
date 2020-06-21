@@ -1,6 +1,7 @@
 <div class="container mt-5">
     <div class="centrado mt-3 mb-1">
-        <h1 class="header-comp">Seguidores de {{user.name+ ' '+ user.surname}} </h1>
+        <h1 class="header-comp">Seguidores de {{user.name+' '+ user.surname}} </h1>
+        <h1>{{followed}}</h1>
         <hr class="hr-basic">
     </div>
     <div class="row" *ngIf="followed">
@@ -21,23 +22,27 @@
                     <div class="desc"><i class="fa fa-user mr-1 mt-2"></i>{{follow.user.name + ' '+follow.user.surname}}
                     </div>
                 </div>
-                <div class="bottom">
-                    <button class="btn btn-primary btn-block" *ngIf="follows.indexOf(follow.user._id) < 0"
-                        rel="publisher" href="#" (click)="followUser(follow.user._id)">
+                <div class="bottom" *ngIf="follow.user._id != identity._id">
+                    <button class="btn btn-primary btn-block" *ngIf="follows.indexOf(user._id) < 0" rel="publisher"
+                        href="#" (click)="followUser(user._id)">
                         Seguir
                     </button>
 
-                    <button class="btn btn-success btn-block " rel="publisher"
-                        *ngIf="follows.indexOf(follow.user._id) >= 0" (click)="unfollowUser(follow.user._id)"
-                        (mouseenter)="mouseEnter(follow.user._id)" (mouseleave)="mouseLeave(follow.user._id)"
-                        [class.btn-danger]="follow.user._id == followUserOver" href="#">
+                    <button class="btn btn-success btn-block " rel="publisher" *ngIf="follows.indexOf(user._id) >= 0"
+                        (click)="unfollowUser(user._id)" (mouseenter)="mouseEnter(user._id)"
+                        (mouseleave)="mouseLeave(user._id)" [class.btn-danger]="user._id == followUserOver" href="#">
 
-                        <span *ngIf="follow.user._id == followUserOver; else following">Dejar de Seguir</span>
+                        <span *ngIf="user._id == followUserOver; else following">Dejar de Seguir</span>
                         <ng-template #following>
                             <span>Siguiendo</span>
                         </ng-template>
                     </button>
 
+                </div>
+                <div class="bottom" *ngIf="follow.user._id == identity._id">
+                    <button class="btn btn-danger btn-block" >
+                        <a [routerLink]="['/profile',identity._id]" routerLinkActive="router-link-active">Ver Mi perfil</a>
+                    </button>
                 </div>
 
             </div>

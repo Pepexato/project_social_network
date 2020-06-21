@@ -5,7 +5,7 @@
     <div *ngFor="let publication of publications" class="  mt-5 mb-5 shadow-box">
         <div class="container-fluid">
             <div class="row p-2 bg-color">
-                <img src="{{ url + 'get-image-user/' + publication.user.image}}" class="size-img mr-2" *ngIf="publication.user.image" />
+                <img src="{{ url + 'get-image-user/' + publication.user.image}}" class="size-img mr-2 fit" *ngIf="publication.user.image" />
                 <img src="assets/logos/avatar.png" *ngIf="!publication.user.image" class="size-img mr-2" />
                 
                 <a [routerLink]="['/profile',publication.user._id]" routerLinkActive="router-link-active" class="profile">

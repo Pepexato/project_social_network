@@ -93,6 +93,7 @@ export class FollowingComponent implements OnInit {
           this.following = response.follows;
           this.pages = response.pages;
           this.follows = response.users_following;
+          console.log(this.following)
           /*
           console.log(this.follows);
           if (page > this.pages) {
