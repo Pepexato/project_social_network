@@ -32,23 +32,24 @@
                             <img *ngIf="user.image" src="{{url+'get-image-user/'+user.image}}" class="img-size" />
                             
                         </div>
-                        <hr class="hr-basic">
-
+                        
                         <div class="col-md-4 col-sm-4 text-center " *ngIf="user.image == null">
                             <img src="assets/logos/avatar.png" class="img-size" />
                         </div>
-                        <div class="mt-3 col-md-4 col-sm-2 text-center">
+                        <hr class="hr-basic">
+
+                        <div class="mt-3 col-md-4 col-sm-4 text-center">
                             <h3><strong> {{stats.followed}} </strong></h3>
                             <a [routerLink]="['/seguidores/',user._id,1]">Seguidores</a>
 
                         </div>
-                        <div class="mt-3 col-md-4 col-sm-2 text-center">
+                        <div class="mt-3 col-md-4 col-sm-4 text-center">
                             <h3><strong>{{stats.following}}</strong></h3>
                             <a [routerLink]="['/siguiendo/',user._id,1]">Seguidos</a>
 
 
                         </div>
-                        <div class="mt-3 col-md-4 col-sm-2 text-center">
+                        <div class="mt-3 col-md-4 col-sm-4 text-center">
                             <h3><strong>{{stats.publications}}</strong></h3>
                             <p>Publicaciones</p>
 

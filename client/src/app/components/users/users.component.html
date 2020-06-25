@@ -37,7 +37,7 @@
 
                 </div>
                 <div class="bottom" *ngIf="user._id == identity._id">
-                    <button class="btn color-profile btn-block" >
+                    <button class="btn color-profile btn-block">
                         <a [routerLink]="['/profile',user._id]" routerLinkActive="router-link-active">Ver Mi perfil</a>
                     </button>
                 </div>
@@ -45,11 +45,11 @@
 
         </div>
     </div>
-    <div class="pos-btn mb-5">
-        <button *ngIf="page > 1" class="btn btn-secondary btn-sm mr-2"><a 
-                [routerLink]="['/gente', pre_page]">Anterior</a></button>
-        <button *ngIf="pages != page" class="btn btn-secondary btn-sm "> <a 
-                [routerLink]="['/gente',next_page]">Siguiente</a></button>
+    <div class="pos-btn mt-3 mb-5">
+        <a *ngIf="page > 1" class="btn btn-secondary styled btn-sm mr-2" [routerLink]="['/gente', pre_page]">
+            Anterior</a>
+        <a *ngIf="pages != page" class="btn btn-secondary styled btn-sm " [routerLink]="['/gente',next_page]">
+            Siguiente</a>
     </div>
 
 </div>

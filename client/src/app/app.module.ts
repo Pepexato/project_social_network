@@ -27,6 +27,7 @@ import { ReceivedComponent } from './components/messages/components/received/rec
 import { SendedComponent } from './components/messages/components/sended/sended.component';
 import { UserService } from './services/user.service';
 import { UserGuard } from './services/user.guard';
+import { PricingComponent } from './components/pricing/pricing.component';
 //Modelo Custom
 
 //Servicios
@@ -53,7 +54,7 @@ import { UserGuard } from './services/user.guard';
     MainComponent,
     AddComponent,
     ReceivedComponent, 
-    SendedComponent
+    SendedComponent, PricingComponent
 
   ],
   imports: [

@@ -19,6 +19,7 @@ import { AddComponent } from './components/messages/components/add/add.component
 import { ReceivedComponent } from './components/messages/components/received/received.component';
 import { SendedComponent } from './components/messages/components/sended/sended.component';
 import { UserGuard } from './services/user.guard';
+import { PricingComponent } from './components/pricing/pricing.component';
  
 
 
@@ -69,6 +70,9 @@ export const appRoutes: Routes = [
   },{
     path: 'gente',
     component: UsersComponent,canActivate:[UserGuard]
+  },{
+    path: 'pricing',
+    component: PricingComponent,canActivate:[UserGuard]
   },{
     path: 'nueva-publicacion',
     component: PublicationComponent,canActivate:[UserGuard]

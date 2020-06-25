@@ -3,6 +3,7 @@
     height: 180px;
     border-radius: 180px;
     object-fit: cover;
+    border: 2px solid black;
 }
 
 .profile-text {
@@ -19,15 +20,23 @@
 .card{
     border:0px solid black;
 }
+@media (max-width: 1024px) {
+    .img-size {
+        width: 130px;
+        height: 130px;
+        border-radius: 130px;
+        object-fit: cover;
+    }
+}
 
 @media (max-width: 768px) {
     .container {
         width: 80%;
     }
     .img-size {
-        width: 150px;
-        height: 150px;
-        border-radius: 170px;
+        width: 110px;
+        height: 110px;
+        border-radius: 110px;
         object-fit: cover;
     }
 
@@ -44,6 +53,7 @@
     .p-5 {
         padding: 2.5rem !important;
     }
+    
 }
 
 @media (max-width: 576px) {
@@ -51,9 +61,9 @@
         width: 90%;
     }
     .img-size {
-        width: 130px;
-        height: 130px;
-        border-radius: 130px;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
         object-fit: cover;
     }
 
@@ -69,5 +79,9 @@
 
     .p-5 {
         padding: 2rem !important;
+    }
+
+    h3{
+        font-size: 14px;
     }
 }
