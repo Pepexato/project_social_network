@@ -61,10 +61,12 @@ export class ProfileComponent implements OnInit {
           
 
           this.user = response.user;
+          console.log("La response del getuser");
+          console.log(response);
 
           //Comprobar si este usuario nos sigue al usuario que esta logeado//
 
-          if (response.following._id && response.followed._id ) {
+          if (response.following.user && this.identity ) {
 
             this.following = true;
 
@@ -98,7 +100,6 @@ export class ProfileComponent implements OnInit {
 
       response => {
 
-        console.log(response)
         this.stats = response;
 
       },

@@ -25,7 +25,7 @@ export class FollowedComponent implements OnInit {
   public total;
   public pages;
   public users: User;
-  public followed:Follow;
+  public followed;
   public status: string;
   public follows;
   public userPageId;
@@ -52,7 +52,7 @@ export class FollowedComponent implements OnInit {
 
       this.page = page;
 
-      console.log("El usuario logeado es:"+this.identity._id);
+      console.log("El usuario logeado es:" + this.identity._id);
 
 
       if (!params['page']) {
@@ -71,14 +71,14 @@ export class FollowedComponent implements OnInit {
         }
 
         //Devolver listado de usuarios
-        this.getUser(user_id,page);
+        this.getUser(user_id, page);
       }
     });
   }
 
-  getFollows(user_id,page) {
-  
-    this._followService.getFollowed(this.token,user_id,page).subscribe(
+  getFollows(user_id, page) {
+
+    this._followService.getFollowed(this.token, user_id, page).subscribe(
       response => {
         if (!response.follows) {
           console.log('No existe ningun user');
@@ -91,9 +91,15 @@ export class FollowedComponent implements OnInit {
           this.followed = response.follows;
           this.pages = response.pages;
           this.follows = response.users_following;
-          console.log(this.followed);
+          console.log(this.identity._id);
+
+          for (var index in this.followed) {
+
+            console.log(this.followed[index].followed);
+          }
         }
-        
+          
+
       },
 
       error => {
@@ -108,15 +114,15 @@ export class FollowedComponent implements OnInit {
     )
   }
 
-  public user:User;
-  public getUser(user_id,page){
-      this._userService.getUser(user_id).subscribe(
-        response =>{
-            if(response.user){
-            this.user = response.user;
-            this.getFollows(user_id,page)
+  public user: User;
+  public getUser(user_id, page) {
+    this._userService.getUser(user_id).subscribe(
+      response => {
+        if (response.user) {
+          this.user = response.user;
+          this.getFollows(user_id, page)
 
-        }else{
+        } else {
           this._router.navigate(['/home']);
         }
       },
@@ -130,7 +136,7 @@ export class FollowedComponent implements OnInit {
         }
 
       }
-      );
+    );
 
   }
 
